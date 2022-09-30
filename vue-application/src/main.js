@@ -1,11 +1,11 @@
 import { createApp } from "vue";
-import App from "./App.vue";
 import router from "./router";
 import { createPinia } from "pinia";
+import TeamView from "./views/TeamView.vue";
 
 import "./assets/main.css";
 
-const app = createApp(App);
+const app = createApp(TeamView);
 
 app.use(router);
 app.use(createPinia());
