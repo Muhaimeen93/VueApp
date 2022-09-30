@@ -1,29 +1,31 @@
 <script setup>
-defineProps({
-  team: Object,
-});
-</script>
-<template>
-  <header class="flex justify-between">
-    <div>
-      <button
-        class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded disabled:bg-gray-400"
-        :disabled="team.members.length === team.spots"
-      >
-        Add Member ({{ team.spots - team.members.length }} Spots Left)
-      </button>
-    </div>
-
-    <div>
-      <div class="inline-flex items-center text-3xl relative">
-        <img src="/smiley.png" alt="" class="mr-2" />
-        <h3>{{ team.name }} Team</h3>
-        <div
-          class="bg-green-400 w-5 h-5 text-xs text-white rounded-full flex justify-center items-center absolute -right-4 -top-2"
+  import {useTeamStore} from "@/stores/TeamStore.vue";
+  
+  let team = useTeamStore();
+  </script>
+  <template>
+    <header class="flex justify-between">
+      <div>
+        Hello
+        <button
+          class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 roudned disabled:bg-gray-400"
+          :disabled="!team.spotsRemaining"
+          @click="$emit('add')"
         >
-          {{ team.spots }}
-        </div>
+          Add Member({{ team.spotsRemaining }} spots Left)
+        </button>
       </div>
-    </div>
-  </header>
-</template>
+      <div>
+        <h3 class="inline-flex items-center text-3xl relative">
+          <img src="/smiley.png" alt="" class="mr-2" />
+          {{ team.name }}
+          <div
+            class="bg-green-400 w-5 h-5 text-xs text-white rounded-full flex justify-center items-center absolute -right-4 -top-2"
+          >
+            {{ team.spots }}
+          </div>
+        </h3>
+      </div>
+    </header>
+  </template>
+  
