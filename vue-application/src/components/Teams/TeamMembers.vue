@@ -1,6 +1,6 @@
 <script setup>
-  import TeamMember from "@/TeamMember.vue";
-  import {useTeamStore} from "@/stores/TeamStore.vue";
+  import TeamMember from "@/components/Teams/TeamMember.vue";
+  import {useTeamStore} from "@/stores/TeamStore.js";
   
   let team = useTeamStore();
   </script>

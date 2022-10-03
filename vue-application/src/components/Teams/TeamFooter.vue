@@ -1,5 +1,5 @@
 <script setup>
-  import {useTeamStore} from "@/stores/TeamStore.vue";
+  import {useTeamStore} from "@/stores/TeamStore.js";
   
   let team = useTeamStore();
   </script>

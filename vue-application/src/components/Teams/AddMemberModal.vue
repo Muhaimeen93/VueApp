@@ -1,7 +1,7 @@
 <script setup>
-import Modal from "@/Components/Modal.vue"
+import Modal from "@/components/Modal.vue"
 import { ref } from "vue"
-import {useTeamStore} from "@/stores/TeamStore"
+import {useTeamStore} from "@/stores/TeamStore.js"
 
 let showModal=ref(false);
 let team=useTeamStore();
